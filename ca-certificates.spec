@@ -35,7 +35,7 @@ Name: ca-certificates
 # to have increasing version numbers. However, the new scheme will work, 
 # because all future versions will start with 2013 or larger.)
 
-Version: 2019.2.36
+Version: 2020.2.40
 # for Rawhide, please always use release >= 2
 # for Fedora release branches, please use release < 2 (1.0, 1.1, ...)
 Release: 1
@@ -370,6 +370,9 @@ fi
 
 
 %changelog
+* Mon Mar 9 2020 openEuler Buildteam <buildteam@openeuler.org> - 2020.2.40-1
+- Update to the the latest released version 2020.2.40
+
 * Mon Sep 23 2019 openEuler Buildteam <buildteam@openeuler.org> - 2019.2.36-1
 - Update to the the latest released version 2.36
 
