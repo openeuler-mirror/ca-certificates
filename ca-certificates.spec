@@ -35,7 +35,7 @@ Name: ca-certificates
 # to have increasing version numbers. However, the new scheme will work, 
 # because all future versions will start with 2013 or larger.)
 
-Version: 2020.2.42
+Version: 2020.2.44
 # for Rawhide, please always use release >= 2
 # for Fedora release branches, please use release < 2 (1.0, 1.1, ...)
 Release: 1
@@ -370,6 +370,9 @@ fi
 
 
 %changelog
+* Wed Dec 2 2020 panxiaohe <panxiaohe@huawei.com> - 2020.2.44-1
+- Update to the the latest released version 2020.2.44
+
 * Sat Jul 25 2020 Liquor <lirui130@huawei.com> - 2020.2.42-1
 - Update to the the latest released version 2020.2.42
 
