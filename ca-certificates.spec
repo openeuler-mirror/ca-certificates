@@ -38,7 +38,7 @@ Name: ca-certificates
 Version: 2020.2.46
 # for Rawhide, please always use release >= 2
 # for Fedora release branches, please use release < 2 (1.0, 1.1, ...)
-Release: 1
+Release: 2
 License: Public Domain
 
 Group: System Environment/Base
@@ -370,6 +370,9 @@ fi
 
 
 %changelog
+* Thu Jun 10 2021 liudabo <liudabo1@huawei.com> - 2021.2.46-2
+- Refresh the original the original certificate file and delete the insercure certificates
+
 * Fri Mar 12 2021 yixiangzhike <zhangxingliang3@huawei.com> - 2020.2.46-1
 - Update to the latest released version 2020.2.46
 
