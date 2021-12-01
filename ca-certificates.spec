@@ -35,10 +35,10 @@ Name: ca-certificates
 # to have increasing version numbers. However, the new scheme will work, 
 # because all future versions will start with 2013 or larger.)
 
-Version: 2020.2.46
+Version: 2021.2.52
 # for Rawhide, please always use release >= 2
 # for Fedora release branches, please use release < 2 (1.0, 1.1, ...)
-Release: 2
+Release: 1
 License: Public Domain
 
 Group: System Environment/Base
@@ -370,6 +370,9 @@ fi
 
 
 %changelog
+* Wed Dec 1 2021 liudabo <liudabo1@huawei.com> - 2021.2.52-1
+- upgrade version to 2021.2.52
+
 * Thu Jun 10 2021 liudabo <liudabo1@huawei.com> - 2021.2.46-2
 - Refresh the original the original certificate file and delete the insercure certificates
 
