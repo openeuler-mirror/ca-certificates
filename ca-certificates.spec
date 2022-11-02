@@ -38,7 +38,7 @@ Name: ca-certificates
 Version: 2021.2.52
 # for Rawhide, please always use release >= 2
 # for Fedora release branches, please use release < 2 (1.0, 1.1, ...)
-Release: 1
+Release: 2
 License: Public Domain
 
 Group: System Environment/Base
@@ -307,9 +307,18 @@ fi
 #if [ $1 -gt 1 ] ; then
 #  # when upgrading or downgrading
 #fi
+# When coreutils is installing with ca-certificates
+# we need to wait until coreutils install to
+# run our update since update requires ln to complete.
+if [ -x %{_bindir}/ln ]; then
 %{_bindir}/ca-legacy install
 %{_bindir}/update-ca-trust
+fi
 
+%posttrans
+# we run the scripts here too, in case we couldn't run them in post
+%{_bindir}/ca-legacy install
+%{_bindir}/update-ca-trust
 
 %files
 %dir %{_sysconfdir}/ssl
@@ -370,6 +379,9 @@ fi
 
 
 %changelog
+* Sat Oct 22 2022 wangjiang <wangjiang37@h-partners.com> - 2021.2.52-2
+- lagging install ca-legacy and update-ca-trust
+
 * Wed Dec 1 2021 liudabo <liudabo1@huawei.com> - 2021.2.52-1
 - upgrade version to 2021.2.52
 
