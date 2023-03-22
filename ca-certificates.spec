@@ -38,7 +38,7 @@ Name: ca-certificates
 Version: 2021.2.52
 # for Rawhide, please always use release >= 2
 # for Fedora release branches, please use release < 2 (1.0, 1.1, ...)
-Release: 2
+Release: 3
 License: Public Domain
 
 Group: System Environment/Base
@@ -170,12 +170,12 @@ popd
 
 #manpage
 cp %{SOURCE10} %{name}/update-ca-trust.8.txt
-asciidoc.py -v -d manpage -b docbook %{name}/update-ca-trust.8.txt
-xsltproc --nonet -o %{name}/update-ca-trust.8 /usr/share/asciidoc/docbook-xsl/manpage.xsl %{name}/update-ca-trust.8.xml
+asciidoc -v -d manpage -b docbook %{name}/update-ca-trust.8.txt
+xsltproc --nonet -o %{name}/update-ca-trust.8 %{python3_sitelib}/asciidoc/resources/docbook-xsl/manpage.xsl %{name}/update-ca-trust.8.xml
 
 cp %{SOURCE9} %{name}/ca-legacy.8.txt
-asciidoc.py -v -d manpage -b docbook %{name}/ca-legacy.8.txt
-xsltproc --nonet -o %{name}/ca-legacy.8 /usr/share/asciidoc/docbook-xsl/manpage.xsl %{name}/ca-legacy.8.xml
+asciidoc -v -d manpage -b docbook %{name}/ca-legacy.8.txt
+xsltproc --nonet -o %{name}/ca-legacy.8 %{python3_sitelib}/asciidoc/resources/docbook-xsl/manpage.xsl %{name}/ca-legacy.8.xml
 
 
 %install
@@ -379,6 +379,9 @@ fi
 
 
 %changelog
+* Wed Mar 22 2023 wangjiang <wangjiang37@h-partners.com> - 2021.2.52-3
+- fix build fail due to asciidoc upgrade
+
 * Sat Oct 22 2022 wangjiang <wangjiang37@h-partners.com> - 2021.2.52-2
 - lagging install ca-legacy and update-ca-trust
 
